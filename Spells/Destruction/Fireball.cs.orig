@@ -1,0 +1,70 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Fireball : Spell
+{
+    new Rigidbody rigidbody;
+
+    public float force;
+
+<<<<<<< HEAD
+    private AudioSource audio;
+=======
+    private void Start()
+    {
+        this.type = "fire";
+    }
+>>>>>>> attackable2
+
+    void Awake()
+    {
+        rigidbody = GetComponent<Rigidbody>();
+    }
+
+    // implementation for casting a spell
+    public override void Cast()
+    {
+        // 1. instaniate object
+        rigidbody.velocity = transform.forward * force;
+
+        // 2. play sound effect
+        audio = GetComponent<AudioSource>();
+        if (audio)
+        {
+            audio.Play();
+        }
+
+        // 3. subtract mana cost
+        player.LoseMana(manaCost);
+
+        // 5. Destroy the spell object if it hasn't hit anything yet
+        if (gameObject)
+        {
+            Destroy(gameObject, 5.0f);
+        }
+    }
+
+    // implementation for spell collision
+    void OnCollisionEnter(Collision col)
+    {
+        // TODO -
+        Enemy e = col.gameObject.GetComponent<Enemy>();
+        //attackable a = col.gameobject.getcomponent<attackable>();
+
+        /*if (a)
+        {
+            if (a.type.equals(type))
+            {
+                a.activate();
+            }
+        }*/
+        if (e)
+        {
+            e.takeDamage(dmg);
+            // e.knockback(force);
+        }
+
+        Destroy(gameObject, 0f);
+    }
+}

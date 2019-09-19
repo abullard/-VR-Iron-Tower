@@ -1,9 +1,9 @@
-# -VR-Iron-Tower
+# VR-Iron-Tower
 Virtual Reality game made for college game design class in the Spring of 2018. 
 
 Scale the Iron Tower, solving puzzles and fighting monsters along the way. You'll collect power ups and cast crazy spells using gesture controls on the HTC Vive! 
 
-*__Note:__ This repository only contains code relative to the Spell Casting Gesture Controls, written by me.*
+*__Note:__ This repository only contains code relative to the Spell Casting Gesture Controls, written by me. Guantlet.cs, and LockOn.cs are the general Hand held Controller scripts. The scripts under spells contain the code to instantiate a spell in the scene and contain is damage type, effects, etc.*
 
 ## In-Game Screenshots
 ![1](https://i.imgur.com/08f8mzB.jpg)
